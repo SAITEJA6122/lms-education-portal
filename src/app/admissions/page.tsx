@@ -3,7 +3,7 @@
 import React from 'react';
 import { PageHeader } from "@/components/layout/PageHeader";
 import { motion } from "framer-motion";
-import { CheckCircle2, FileText, Calendar, Info, HelpCircle } from "lucide-react";
+import { CheckCircle2, FileText, Calendar, Info, HelpCircle, Users } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const admissionSteps = [
@@ -28,8 +28,6 @@ const admissionSteps = [
     icon: CheckCircle2
   }
 ];
-
-import { Users } from "lucide-react";
 
 export default function AdmissionsPage() {
   return (

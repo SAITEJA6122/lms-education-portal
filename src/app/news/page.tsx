@@ -110,19 +110,15 @@ export default function NewsPage() {
           </div>
 
           {/* News Grid */}
-          <motion.div 
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <AnimatePresence mode="popLayout">
-              {filteredNews.map((news) => (
+              {filteredNews.map((news, index) => (
                 <motion.article
                   key={news.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={index < 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.4 }}
                   className="group bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500"
                 >
                   <div className="relative h-64 overflow-hidden">
@@ -130,8 +126,10 @@ export default function NewsPage() {
                       src={news.image}
                       alt={news.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      priority={index < 3}
+                      fetchPriority={index < 3 ? "high" : "auto"}
                     />
                     <div className="absolute top-6 left-6 bg-secondary text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
                       {news.category}
@@ -156,7 +154,7 @@ export default function NewsPage() {
                 </motion.article>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
 
           {filteredNews.length === 0 && (
             <div className="text-center py-20">

@@ -53,19 +53,15 @@ export default function GalleryPage() {
           </div>
 
           {/* Image Grid */}
-          <motion.div 
-            layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
-              {filteredImages.map((img) => (
+              {filteredImages.map((img, index) => (
                 <motion.div
                   key={img.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={index < 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.4 }}
                   className="relative group h-[300px] rounded-3xl overflow-hidden cursor-pointer shadow-md"
                 >
                   <Image
@@ -74,7 +70,8 @@ export default function GalleryPage() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading={img.id <= 3 ? "eager" : "lazy"}
+                    priority={index < 3}
+                    fetchPriority={index < 3 ? "high" : "auto"}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
                     <span className="text-secondary font-bold text-sm uppercase tracking-wider mb-1">{img.category}</span>
@@ -83,7 +80,7 @@ export default function GalleryPage() {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>
