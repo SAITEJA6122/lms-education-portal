@@ -62,14 +62,14 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap gap-4"
           >
-            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white border-none px-8">
-              Admissions Open 2026-27
+            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold px-8">
+              Admissions Open
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary px-8">
-              Explore Campus
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold px-8">
+              Virtual Tour
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary px-8">
-              Contact Us
+            <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 font-bold px-8 group">
+              Contact Us <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
         </div>

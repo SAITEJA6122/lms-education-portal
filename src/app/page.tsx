@@ -4,6 +4,8 @@ import { SchoolIntroduction } from "@/components/sections/SchoolIntroduction";
 import { QuickInformationCards } from "@/components/sections/QuickInformationCards";
 import { PrincipalMessage } from "@/components/sections/PrincipalMessage";
 import { Highlights } from "@/components/sections/Highlights";
+import { LatestNews } from "@/components/sections/LatestNews";
+import { Achievements } from "@/components/sections/Achievements";
 
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => mod.Testimonials), {
   loading: () => <div className="py-24 bg-gray-50 flex items-center justify-center">Loading Testimonials...</div>
@@ -20,7 +22,9 @@ export default function Home() {
       <SchoolIntroduction />
       <QuickInformationCards />
       <PrincipalMessage />
+      <Achievements />
       <Highlights />
+      <LatestNews />
       <Testimonials />
       <GalleryPreview />
     </div>

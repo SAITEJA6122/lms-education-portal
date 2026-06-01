@@ -41,23 +41,23 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-6 text-white text-left">Quick Links</h4>
             <ul className="space-y-4">
-              <li><Link href="/about" className="text-gray-300 hover:text-secondary transition-colors block text-left">About GHSS</Link></li>
+              <li><Link href="/academics" className="text-gray-300 hover:text-secondary transition-colors block text-left">Academics</Link></li>
+              <li><Link href="/faculty" className="text-gray-300 hover:text-secondary transition-colors block text-left">Faculty Directory</Link></li>
               <li><Link href="/infrastructure" className="text-gray-300 hover:text-secondary transition-colors block text-left">Infrastructure</Link></li>
               <li><Link href="/student-life" className="text-gray-300 hover:text-secondary transition-colors block text-left">Student Life</Link></li>
-              <li><Link href="/gallery" className="text-gray-300 hover:text-secondary transition-colors block text-left">School Gallery</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-secondary transition-colors block text-left">Contact Us</Link></li>
+              <li><Link href="/achievements" className="text-gray-300 hover:text-secondary transition-colors block text-left">Achievements</Link></li>
             </ul>
           </div>
 
           {/* Admissions */}
           <div>
-            <h4 className="text-lg font-bold mb-6 text-white text-left">Admissions</h4>
+            <h4 className="text-lg font-bold mb-6 text-white text-left">Resources</h4>
             <ul className="space-y-4">
-              <li><Link href="#" className="text-gray-300 hover:text-secondary transition-colors block text-left">Admission Process</Link></li>
-              <li><Link href="#" className="text-gray-300 hover:text-secondary transition-colors block text-left">Fee Structure</Link></li>
-              <li><Link href="#" className="text-gray-300 hover:text-secondary transition-colors block text-left">Scholarships</Link></li>
-              <li><Link href="#" className="text-gray-300 hover:text-secondary transition-colors block text-left">Online Application</Link></li>
-              <li><Link href="#" className="text-gray-300 hover:text-secondary transition-colors block text-left">Entrance Exams</Link></li>
+              <li><Link href="/admissions" className="text-gray-300 hover:text-secondary transition-colors block text-left">Admissions</Link></li>
+              <li><Link href="/news" className="text-gray-300 hover:text-secondary transition-colors block text-left">News & Events</Link></li>
+              <li><Link href="/gallery" className="text-gray-300 hover:text-secondary transition-colors block text-left">School Gallery</Link></li>
+              <li><Link href="/downloads" className="text-gray-300 hover:text-secondary transition-colors block text-left">Downloads</Link></li>
+              <li><Link href="/contact" className="text-gray-300 hover:text-secondary transition-colors block text-left">Contact Us</Link></li>
             </ul>
           </div>
 

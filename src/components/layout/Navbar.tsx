@@ -14,14 +14,41 @@ const navLinks = [
     href: '#',
     submenu: [
       { name: 'About Us', href: '/about' },
-      { name: 'School History', href: '/history' },
+      { name: 'History & Legacy', href: '/history' },
       { name: 'Vision & Mission', href: '/vision-mission' },
       { name: 'Principal Message', href: '/principal-message' },
+      { name: 'Management', href: '/management' },
+    ]
+  },
+  {
+    name: 'Academics',
+    href: '#',
+    submenu: [
+      { name: 'Programs', href: '/academics' },
+      { name: 'Faculty', href: '/faculty' },
+      { name: 'Departments', href: '/departments' },
+      { name: 'Academic Calendar', href: '/downloads' },
+    ]
+  },
+  {
+    name: 'Admissions',
+    href: '#',
+    submenu: [
+      { name: 'Procedure', href: '/admissions' },
+      { name: 'Enquiry Form', href: '/contact' },
     ]
   },
   { name: 'Infrastructure', href: '/infrastructure' },
-  { name: 'Student Life', href: '/student-life' },
-  { name: 'Contact Us', href: '/contact' },
+  { 
+    name: 'Life at GHSS', 
+    href: '#',
+    submenu: [
+      { name: 'Student Life', href: '/student-life' },
+      { name: 'Achievements', href: '/achievements' },
+      { name: 'Gallery', href: '/gallery' },
+    ]
+  },
+  { name: 'News', href: '/news' },
 ];
 
 export const Navbar = () => {
