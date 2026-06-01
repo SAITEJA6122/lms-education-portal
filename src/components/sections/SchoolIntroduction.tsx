@@ -26,7 +26,7 @@ export const SchoolIntroduction = () => {
           >
             <div className="aspect-square bg-gray-100 rounded-[2.5rem] overflow-hidden shadow-2xl relative">
               <Image
-                src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800&auto=format&fit=crop"
                 alt="Girls Higher Secondary School Campus"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

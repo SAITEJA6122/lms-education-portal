@@ -26,7 +26,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1200&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1200&auto=format&fit=crop"
                 alt="GHSS Campus"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

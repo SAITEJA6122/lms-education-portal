@@ -13,12 +13,13 @@ export const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=2070&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2070&auto=format&fit=crop"
           alt="School Campus"
           fill
           sizes="100vw"
           className="object-cover"
           priority
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40"></div>
       </div>

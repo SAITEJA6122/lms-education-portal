@@ -16,7 +16,7 @@ const galleryImages = [
   { id: 6, src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800", alt: "Art & Craft Workshop", category: "Events" },
   { id: 7, src: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800", alt: "Physics Lab", category: "Labs" },
   { id: 8, src: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800", alt: "Running Track", category: "Sports" },
-  { id: 9, src: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=800", alt: "Auditorium", category: "Campus" },
+  { id: 9, src: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800", alt: "Auditorium", category: "Campus" },
 ];
 
 export default function GalleryPage() {
@@ -74,6 +74,7 @@ export default function GalleryPage() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading={img.id <= 3 ? "eager" : "lazy"}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
                     <span className="text-secondary font-bold text-sm uppercase tracking-wider mb-1">{img.category}</span>
