@@ -168,8 +168,8 @@ export default function NewsPage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="bg-white p-12 md:p-16 rounded-[3rem] shadow-xl border border-gray-100">
-            <h2 className="text-3xl font-bold text-primary mb-4">Subscribe to our Newsletter</h2>
-            <p className="text-gray-600 mb-10">Get the latest school updates and news delivered straight to your inbox.</p>
+            <h2 className="text-3xl font-bold text-black mb-4">Subscribe to our Newsletter</h2>
+            <p className="text-black mb-10">Get the latest school updates and news delivered straight to your inbox.</p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input 
                 type="email" 
