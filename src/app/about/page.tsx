@@ -1,5 +1,5 @@
 import { PageHeader } from "@/components/layout/PageHeader";
-import { CheckCircle2, GraduationCap, Building2, MapPin } from "lucide-react";
+import { CheckCircle2, GraduationCap, Building2, MapPin, Heart } from "lucide-react";
 import Image from "next/image";
 
 export default function AboutPage() {
@@ -17,7 +17,7 @@ export default function AboutPage() {
     {
       title: "Empowering Environment",
       description: "A dedicated girls-only institution fostering an inclusive and supportive space tailored for the holistic growth of young women.",
-      icon: HeartIcon // I'll use a custom icon or heart from lucide
+      icon: Heart
     }
   ];
 
