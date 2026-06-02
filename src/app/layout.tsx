@@ -10,20 +10,20 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Girls Higher Secondary School | Official Website",
-  description: "Official Website of Girls Higher Secondary School. Empowering the next generation of leaders with quality education and character development.",
+  title: "LMS Girls Higher Secondary School | Official Website",
+  description: "Official Website of LMS Girls Higher Secondary School. Empowering the next generation of leaders with quality education and character development.",
   openGraph: {
-    title: "Girls Higher Secondary School",
-    description: "Official Website of Girls Higher Secondary School",
+    title: "LMS Girls Higher Secondary School",
+    description: "Official Website of LMS Girls Higher Secondary School",
     type: "website",
     locale: "en_US",
     url: "https://ghss.edu",
-    siteName: "Girls Higher Secondary School",
+    siteName: "LMS Girls Higher Secondary School",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Girls Higher Secondary School",
-    description: "Official Website of Girls Higher Secondary School",
+    title: "LMS Girls Higher Secondary School",
+    description: "Official Website of LMS Girls Higher Secondary School",
   },
 };
 

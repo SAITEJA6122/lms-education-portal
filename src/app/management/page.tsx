@@ -16,7 +16,7 @@ const leaders = [
   {
     name: "Mr. Suresh Kumar",
     role: "Secretary",
-    message: "Infrastructure and academic excellence are the pillars of GHSS. We continuously strive for improvement.",
+    message: "Infrastructure and academic excellence are the pillars of LMS GHSS. We continuously strive for improvement.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&h=500&auto=format&fit=crop"
   },
   {
@@ -32,7 +32,7 @@ export default function ManagementPage() {
     <div className="flex flex-col min-h-screen">
       <PageHeader 
         title="Our Management" 
-        description="Meet the visionary leaders guiding Girls Higher Secondary School towards a brighter future."
+        description="Meet the visionary leaders guiding LMS Girls Higher Secondary School towards a brighter future."
       />
 
       <section className="py-24 bg-white">
@@ -84,7 +84,7 @@ export default function ManagementPage() {
           <h2 className="text-3xl font-bold mb-8">Our Leadership Vision</h2>
           <p className="text-xl text-gray-300 leading-relaxed">
             "We believe that every girl has the potential to be a catalyst for change. 
-            Our management works tirelessly to ensure that GHSS provides the resources, 
+            Our management works tirelessly to ensure that LMS GHSS provides the resources, 
             guidance, and environment necessary for this transformation."
           </p>
         </div>

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://ghss.edu/sitemap.xml',
+    sitemap: 'https://lmsghss.edu/sitemap.xml',
   };
 }

@@ -34,7 +34,7 @@ export default function AdmissionsPage() {
     <div className="flex flex-col min-h-screen">
       <PageHeader 
         title="Admissions" 
-        description="Join our community of excellence. Find everything you need to know about the admission process at GHSS."
+        description="Join our community of excellence. Find everything you need to know about the admission process at LMS GHSS."
       />
 
       {/* Overview */}
@@ -48,7 +48,7 @@ export default function AdmissionsPage() {
             >
               <h2 className="text-3xl font-bold text-primary mb-6">Start Your Journey With Us</h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                At GHSS, we seek students who are eager to learn, grow, and contribute to our vibrant 
+                At LMS GHSS, we seek students who are eager to learn, grow, and contribute to our vibrant 
                 community. Our admission process is designed to be transparent, inclusive, and 
                 student-centric.
               </p>
@@ -110,7 +110,7 @@ export default function AdmissionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-primary mb-4">The Admission Process</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Follow these simple steps to secure your admission at Girls Higher Secondary School.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">Follow these simple steps to secure your admission at LMS Girls Higher Secondary School.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {admissionSteps.map((step, i) => (

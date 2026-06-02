@@ -128,7 +128,7 @@ export default function AchievementsPage() {
                 </div>
                 <h4 className="text-xl font-bold text-primary mb-1">Student Name</h4>
                 <p className="text-secondary text-sm font-medium mb-4">Grade 12, Batch of 2026</p>
-                <p className="text-gray-500 text-sm">"GHSS provided me with the platform to excel in both academics and national-level debate competitions."</p>
+                <p className="text-gray-500 text-sm">"LMS GHSS provided me with the platform to excel in both academics and national-level debate competitions."</p>
               </div>
             ))}
           </div>

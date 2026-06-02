@@ -33,7 +33,7 @@ export const PrincipalMessage = () => {
               </div>
               <div className="mt-6">
                 <h4 className="text-2xl font-bold">Dr. Jane Doe</h4>
-                <p className="text-secondary font-medium">Principal, GHSS</p>
+                <p className="text-secondary font-medium">Principal, LMS GHSS</p>
               </div>
             </motion.div>
 
@@ -48,7 +48,7 @@ export const PrincipalMessage = () => {
               </h3>
               <div className="space-y-6 text-gray-300 text-lg leading-relaxed text-left">
                 <p>
-                  At Girls Higher Secondary School, we believe that education is the most powerful tool to empower 
+                  At LMS Girls Higher Secondary School, we believe that education is the most powerful tool to empower 
                   the next generation. We strive to provide more than just academic knowledge; we focus on 
                   building character, fostering compassion, and encouraging the courage to lead.
                 </p>

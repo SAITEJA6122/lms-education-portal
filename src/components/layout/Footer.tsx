@@ -11,10 +11,10 @@ export const Footer = () => {
           <div>
             <Link href="/" className="flex items-center space-x-3 mb-6">
               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                <span className="text-primary font-bold text-2xl">G</span>
+                <span className="text-primary font-bold text-xl">LMS</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-white leading-none">GHSS</span>
+                <span className="text-xl font-bold text-white leading-none">LMS GHSS</span>
                 <span className="text-[10px] font-medium text-gray-300 uppercase tracking-wider">Girls Higher Secondary School</span>
               </div>
             </Link>
@@ -75,14 +75,14 @@ export const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="text-secondary" size={20} />
-                <span className="text-gray-300 text-left">info@ghss.edu</span>
+                <span className="text-gray-300 text-left">info@lmsghss.edu</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>© 2026 Girls Higher Secondary School. All rights reserved.</p>
+          <p>© 2026 LMS Girls Higher Secondary School. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

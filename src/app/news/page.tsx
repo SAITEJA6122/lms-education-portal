@@ -20,7 +20,7 @@ const allNews = [
   },
   {
     id: 2,
-    title: "GHSS Students Win National Science Fair",
+    title: "LMS GHSS Students Win National Science Fair",
     date: "June 10, 2026",
     category: "Achievement",
     image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",
@@ -75,7 +75,7 @@ export default function NewsPage() {
     <div className="flex flex-col min-h-screen">
       <PageHeader 
         title="News & Events" 
-        description="Stay informed about the latest happenings, achievements, and upcoming events at GHSS."
+        description="Stay informed about the latest happenings, achievements, and upcoming events at LMS GHSS."
       />
 
       <section className="py-20 bg-white">

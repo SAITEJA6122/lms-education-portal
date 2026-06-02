@@ -40,7 +40,7 @@ const navLinks = [
   },
   { name: 'Infrastructure', href: '/infrastructure' },
   { 
-    name: 'Life at GHSS', 
+    name: 'Life at LMS GHSS', 
     href: '#',
     submenu: [
       { name: 'Student Life', href: '/student-life' },
@@ -63,10 +63,10 @@ export const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform">
-              <span className="text-white font-bold text-2xl">G</span>
+              <span className="text-white font-bold text-xl">LMS</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-primary leading-none">GHSS</span>
+              <span className="text-xl font-bold text-primary leading-none">LMS GHSS</span>
               <span className="text-[10px] font-medium text-gray-500 uppercase tracking-wider">Girls Higher Secondary School</span>
             </div>
           </Link>

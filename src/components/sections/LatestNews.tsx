@@ -17,7 +17,7 @@ const newsItems = [
   },
   {
     id: 2,
-    title: "GHSS Students Win National Science Fair",
+    title: "LMS GHSS Students Win National Science Fair",
     date: "June 10, 2026",
     category: "Achievement",
     image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",

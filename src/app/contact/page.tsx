@@ -44,8 +44,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Email</h4>
-                    <p className="text-gray-600 text-left">info@ghss.edu</p>
-                    <p className="text-gray-600 text-left">admissions@ghss.edu</p>
+                    <p className="text-gray-600 text-left">info@lmsghss.edu</p>
+                    <p className="text-gray-600 text-left">admissions@lmsghss.edu</p>
                   </div>
                 </div>
 
