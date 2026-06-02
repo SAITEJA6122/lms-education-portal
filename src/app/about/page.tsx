@@ -48,9 +48,12 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex items-center space-x-3 p-4 bg-muted rounded-2xl">
-                  <MapPin className="text-secondary" />
-                  <span className="font-bold text-primary">Neyyoor Campus</span>
+                <div className="flex flex-col space-y-2 p-4 bg-muted rounded-2xl">
+                  <div className="flex items-center space-x-3">
+                    <MapPin className="text-secondary" />
+                    <span className="font-bold text-primary">Neyyoor Campus</span>
+                  </div>
+                  <p className="text-xs text-gray-500 pl-9">Near Paul Dental Hospital, Neiyur Road, Thingalnagar</p>
                 </div>
                 <div className="flex items-center space-x-3 p-4 bg-muted rounded-2xl">
                   <MapPin className="text-secondary" />

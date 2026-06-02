@@ -67,7 +67,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin className="mt-1 flex-shrink-0 text-secondary" size={20} />
-                <span className="text-gray-300 text-left">123 Education Way, Knowledge City, State 45678, India</span>
+                <span className="text-gray-300 text-left">Neyyoor, Kanyakumari District, Tamil Nadu, 629802</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="text-secondary" size={20} />

@@ -23,7 +23,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Address</h4>
-                    <p className="text-gray-600 text-left">123 Education Way, Knowledge City, State 45678, India</p>
+                    <p className="text-gray-600 text-left">Neyyoor, Kanyakumari District, Tamil Nadu, 629802</p>
+                    <p className="text-secondary text-sm font-medium mt-2 text-left italic">
+                      Located near Paul Dental Hospital on Neiyur Road, Thingalnagar
+                    </p>
                   </div>
                 </div>
 
