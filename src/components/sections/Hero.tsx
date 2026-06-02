@@ -42,8 +42,8 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            Nurturing <span className="text-secondary">Brilliance</span> <br />
-            Inspiring Excellence
+            LMS Girls <br />
+            <span className="text-secondary text-4xl md:text-6xl">Higher Secondary School</span>
           </motion.h1>
 
           <motion.p
@@ -52,8 +52,8 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl text-gray-100 mb-10 max-w-2xl leading-relaxed"
           >
-            Welcome to Girls Higher Secondary School, where we foster an environment of 
-            academic excellence, character building, and holistic growth for every student.
+            A reputed, girls-only educational institution in Kanyakumari District, Tamil Nadu. 
+            Empowering young women through excellence in academics, arts, and character building since 1995.
           </motion.p>
 
           <motion.div

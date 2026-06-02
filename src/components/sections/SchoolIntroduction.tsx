@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const SchoolIntroduction = () => {
   const points = [
@@ -47,9 +48,9 @@ export const SchoolIntroduction = () => {
             <h2 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4 text-left">About Our School</h2>
             <h3 className="text-4xl font-bold text-primary mb-6 text-left leading-tight">Empowering Young Women Since 1995</h3>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed text-left">
-              Girls Higher Secondary School (GHSS) is dedicated to providing quality education that 
-              empowers girls to become confident, independent, and socially responsible individuals. 
-              Our curriculum is designed to foster critical thinking and creativity.
+              LMS Girls Higher Secondary School is a reputed institution in Kanyakumari District, 
+              Tamil Nadu. With prominent campuses in <span className="font-bold text-primary">Neyyoor</span> and <span className="font-bold text-primary">Marthandam</span>, 
+              we are affiliated with the <span className="font-bold">Tamil Nadu Board of Secondary Education (TNBSE)</span>.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
               {points.map((point, index) => (
@@ -61,10 +62,12 @@ export const SchoolIntroduction = () => {
                 </div>
               ))}
             </div>
-            <button className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all flex items-center group shadow-lg shadow-primary/20">
-              Discover Our Philosophy
-              <span className="ml-2 group-hover:translate-x-1 transition-transform text-secondary">→</span>
-            </button>
+            <Link href="/about">
+              <button className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all flex items-center group shadow-lg shadow-primary/20">
+                Discover Our Philosophy
+                <span className="ml-2 group-hover:translate-x-1 transition-transform text-secondary">→</span>
+              </button>
+            </Link>
           </motion.div>
         </div>
       </div>

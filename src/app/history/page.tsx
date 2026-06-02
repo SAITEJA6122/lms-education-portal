@@ -1,12 +1,12 @@
 import { PageHeader } from "@/components/layout/PageHeader";
 
 const milestones = [
-  { year: "1995", event: "GHSS founded with 50 students." },
-  { year: "2005", event: "Inauguration of the first Science Laboratory." },
-  { year: "2010", event: "Achieved 'Top School' status in the national rankings." },
-  { year: "2015", event: "Expanded to include High School and Vocational programs." },
-  { year: "2020", event: "Launched the Digital Learning Initiative." },
-  { year: "2025", event: "Celebrating 25 years of educational excellence." },
+  { year: "1995", event: "LMS Girls Higher Secondary School established with a vision to empower girls through education." },
+  { year: "2000", event: "Inauguration of the Neyyoor campus, expanding our reach in Kanyakumari District." },
+  { year: "2008", event: "Establishment of the Marthandam campus to serve more students in the region." },
+  { year: "2015", event: "Achieved consistent 100% pass results in TNBSE State Board examinations." },
+  { year: "2020", event: "Modernization of labs and introduction of digital classrooms across all branches." },
+  { year: "2025", event: "Celebrating 30 years of excellence in girls' education and community empowerment." },
 ];
 
 export default function HistoryPage() {
