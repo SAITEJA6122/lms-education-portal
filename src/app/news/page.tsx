@@ -174,7 +174,7 @@ export default function NewsPage() {
               <input 
                 type="email" 
                 placeholder="Your email address" 
-                className="flex-grow px-6 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                className="flex-grow px-6 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-black"
                 required
               />
               <button type="submit" className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-2xl transition-all shadow-lg">
