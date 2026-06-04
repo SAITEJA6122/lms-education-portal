@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -14,6 +14,7 @@ const geistSans = Geist({
   display: "swap", // Improves font loading performance
 });
 
+<<<<<<< HEAD
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -77,6 +78,23 @@ export const metadata: Metadata = {
     title: "Girls Higher Secondary School",
     description: "Official Website of Girls Higher Secondary School",
     images: ["/og-image.jpg"],
+=======
+export const metadata: Metadata = {
+  title: "LMS Girls Higher Secondary School | Official Website",
+  description: "Official Website of LMS Girls Higher Secondary School. Empowering the next generation of leaders with quality education and character development.",
+  openGraph: {
+    title: "LMS Girls Higher Secondary School",
+    description: "Official Website of LMS Girls Higher Secondary School",
+    type: "website",
+    locale: "en_US",
+    url: "https://ghss.edu",
+    siteName: "LMS Girls Higher Secondary School",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LMS Girls Higher Secondary School",
+    description: "Official Website of LMS Girls Higher Secondary School",
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
   },
   icons: {
     icon: [
@@ -99,6 +117,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+<<<<<<< HEAD
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Viewport settings for better mobile responsiveness */}
@@ -117,6 +136,10 @@ export default function RootLayout({
       <body 
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
+=======
+    <html lang="en">
+      <body className={`${geistSans.variable} antialiased min-h-screen flex flex-col`}>
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
         <Navbar />
         <Breadcrumbs />
         <main id="main-content" className="flex-grow pt-20" tabIndex={-1}>

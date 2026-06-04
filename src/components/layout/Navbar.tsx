@@ -15,6 +15,7 @@ const navLinks = [
     href: '/about',
     submenu: [
       { name: 'About Us', href: '/about' },
+<<<<<<< HEAD
       { name: 'History', href: '/history' },
       { name: 'Vision & Mission', href: '/vision-mission' },
       { name: 'Principal', href: '/principal-message' },
@@ -48,6 +49,43 @@ const navLinks = [
   },
   { name: 'Downloads', href: '/downloads' },
   { name: 'Contact', href: '/contact' },
+=======
+      { name: 'History & Legacy', href: '/history' },
+      { name: 'Vision & Mission', href: '/vision-mission' },
+      { name: 'Principal Message', href: '/principal-message' },
+      { name: 'Management', href: '/management' },
+    ]
+  },
+  {
+    name: 'Academics',
+    href: '#',
+    submenu: [
+      { name: 'Programs', href: '/academics' },
+      { name: 'Faculty', href: '/faculty' },
+      { name: 'Departments', href: '/departments' },
+      { name: 'Academic Calendar', href: '/downloads' },
+    ]
+  },
+  {
+    name: 'Admissions',
+    href: '#',
+    submenu: [
+      { name: 'Procedure', href: '/admissions' },
+      { name: 'Enquiry Form', href: '/contact' },
+    ]
+  },
+  { name: 'Infrastructure', href: '/infrastructure' },
+  { 
+    name: 'Life at LMS GHSS', 
+    href: '#',
+    submenu: [
+      { name: 'Student Life', href: '/student-life' },
+      { name: 'Achievements', href: '/achievements' },
+      { name: 'Gallery', href: '/gallery' },
+    ]
+  },
+  { name: 'News', href: '/news' },
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
 ];
 
 const isSubmenuActive = (submenu: { href: string }[], pathname: string) => {
@@ -75,6 +113,7 @@ export const Navbar = () => {
   }, [isOpen]);
 
   return (
+<<<<<<< HEAD
     <>
       <a
         href="#main-content"
@@ -82,6 +121,21 @@ export const Navbar = () => {
       >
         Skip to main content
       </a>
+=======
+    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20 items-center">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform">
+              <span className="text-white font-bold text-xl">LMS</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-primary leading-none">LMS GHSS</span>
+              <span className="text-[10px] font-medium text-gray-500 uppercase tracking-wider">Girls Higher Secondary School</span>
+            </div>
+          </Link>
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
 
       <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100" role="navigation" aria-label="Main navigation">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">

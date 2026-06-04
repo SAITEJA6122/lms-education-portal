@@ -25,7 +25,7 @@ export default function PrincipalMessagePage() {
               </div>
               <div className="mt-8 text-center lg:text-left">
                 <h3 className="text-2xl font-bold text-primary">Dr. Jane Doe</h3>
-                <p className="text-secondary font-medium uppercase tracking-widest text-sm">Principal, GHSS</p>
+                <p className="text-secondary font-medium uppercase tracking-widest text-sm">Principal, LMS GHSS</p>
                 <p className="text-gray-500 mt-2 italic">Ph.D. in Educational Leadership</p>
               </div>
             </div>
@@ -34,7 +34,7 @@ export default function PrincipalMessagePage() {
               <Quote className="text-gray-100 absolute -top-10 -left-10" size={150} />
               <div className="relative z-10 space-y-6 text-gray-700 text-lg leading-relaxed">
                 <p className="font-semibold text-2xl text-primary italic mb-8">
-                  "Welcome to GHSS. We are dedicated to providing an education that not only 
+                  "Welcome to LMS Girls Higher Secondary School. We are dedicated to providing an education that not only 
                   focuses on academic success but also on building character and resilience."
                 </p>
                 <p>
@@ -42,7 +42,7 @@ export default function PrincipalMessagePage() {
                 </p>
                 <p>
                   It is an honor to lead such a vibrant and dedicated community of learners. 
-                  At GHSS, we believe that every child has unique talents and the 
+                  At LMS GHSS, we believe that every girl has unique talents and the 
                   potential to make a positive impact on the world.
                 </p>
                 <p>

@@ -49,7 +49,14 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Address</h4>
+<<<<<<< HEAD
                     <p className="text-gray-600 text-left">123 Education Way, Trichy,<br />Tamil Nadu, India - 620001</p>
+=======
+                    <p className="text-gray-600 text-left">Neyyoor, Kanyakumari District, Tamil Nadu, 629802</p>
+                    <p className="text-secondary text-sm font-medium mt-2 text-left italic">
+                      Located near Paul Dental Hospital on Neiyur Road, Thingalnagar
+                    </p>
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
                   </div>
                 </div>
 
@@ -59,8 +66,12 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Phone</h4>
+<<<<<<< HEAD
                     <p className="text-gray-600 text-left">+91 (431) 123-4567</p>
                     <p className="text-gray-600 text-left">+91 (431) 987-6543</p>
+=======
+                    <p className="text-gray-600 text-left">(04651) 270536</p>
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
                   </div>
                 </div>
 
@@ -70,8 +81,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Email</h4>
-                    <p className="text-gray-600 text-left">info@ghss.edu</p>
-                    <p className="text-gray-600 text-left">admissions@ghss.edu</p>
+                    <p className="text-gray-600 text-left">info@lmsghss.edu</p>
+                    <p className="text-gray-600 text-left">admissions@lmsghss.edu</p>
                   </div>
                 </div>
 

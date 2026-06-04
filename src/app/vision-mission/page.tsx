@@ -18,8 +18,8 @@ export default function VisionMissionPage() {
               </div>
               <h2 className="text-2xl font-bold text-primary mb-6">Our Vision</h2>
               <p className="text-gray-600 leading-relaxed">
-                To be a world-class institution that nurtures future leaders through innovation, 
-                excellence, and a commitment to positive social impact.
+                To be a premier institution in Kanyakumari District that inspires every young woman 
+                to be a lifelong learner, a confident leader, and a responsible global citizen.
               </p>
             </div>
 
@@ -29,8 +29,9 @@ export default function VisionMissionPage() {
               </div>
               <h2 className="text-2xl font-bold mb-6">Our Mission</h2>
               <p className="text-gray-100 leading-relaxed">
-                To provide a holistic education that empowers students to reach their full 
-                potential, fostering critical thinking, creativity, and strong moral character.
+                To provide a holistic and empowering education for girls, fostering academic 
+                excellence (TNBSE), moral character, and the skills needed to thrive in 
+                a dynamic world.
               </p>
             </div>
 

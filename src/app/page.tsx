@@ -7,7 +7,11 @@ import { QuickInformationCards } from "@/components/sections/QuickInformationCar
 import { PrincipalMessage } from "@/components/sections/PrincipalMessage";
 import { Highlights } from "@/components/sections/Highlights";
 import { LatestNews } from "@/components/sections/LatestNews";
+<<<<<<< HEAD
 import { AchievementsPreview } from "@/components/sections/AchievementsPreview";
+=======
+import { Achievements } from "@/components/sections/Achievements";
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
 
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => mod.Testimonials), {
   loading: () => <div className="py-24 bg-gray-50 flex items-center justify-center">Loading Testimonials...</div>,
@@ -26,9 +30,13 @@ export default function Home() {
       <SchoolIntroduction />
       <QuickInformationCards />
       <PrincipalMessage />
+      <Achievements />
       <Highlights />
       <LatestNews />
+<<<<<<< HEAD
       <AchievementsPreview />
+=======
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
       <Testimonials />
       <GalleryPreview />
     </div>

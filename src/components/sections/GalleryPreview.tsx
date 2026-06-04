@@ -15,8 +15,23 @@ const images = [
 ];
 
 export const GalleryPreview = () => {
+<<<<<<< HEAD
   const [selectedImage, setSelectedImage] = useState<typeof images[0] | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+=======
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div className="text-left">
+            <h2 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Our Moments</h2>
+            <h3 className="text-4xl font-bold text-primary">LMS GHSS Gallery</h3>
+          </div>
+          <Link href="/gallery" className="px-6 py-2 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all">
+            View All Photos
+          </Link>
+        </div>
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);

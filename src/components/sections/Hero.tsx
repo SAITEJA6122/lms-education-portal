@@ -89,8 +89,8 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight"
           >
-            Nurturing <span className="text-secondary">Brilliance</span> <br />
-            Inspiring Excellence
+            LMS Girls <br />
+            <span className="text-secondary text-4xl md:text-6xl">Higher Secondary School</span>
           </motion.h1>
 
           <motion.p
@@ -99,8 +99,8 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 md:mb-10 max-w-2xl leading-relaxed"
           >
-            Welcome to Girls Higher Secondary School, where we foster an environment of 
-            academic excellence, character building, and holistic growth for every student.
+            A reputed, girls-only educational institution in Kanyakumari District, Tamil Nadu. 
+            Empowering young women through excellence in academics, arts, and character building since 1995.
           </motion.p>
 
           <motion.div
@@ -109,6 +109,7 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap gap-3 sm:gap-4"
           >
+<<<<<<< HEAD
             {/* FIXED: Admissions button with rightIcon */}
             <Link href="/admissions">
               <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-primary border-none px-6 sm:px-8 font-semibold shadow-lg hover:shadow-xl transition-all" rightIcon={<ArrowRight size={18} />}>
@@ -121,6 +122,17 @@ export const Hero = () => {
                 Contact Us
               </Button>
             </Link>
+=======
+            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold px-8">
+              Admissions Open
+            </Button>
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold px-8">
+              Virtual Tour
+            </Button>
+            <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 font-bold px-8 group">
+              Contact Us <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+>>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
           </motion.div>
         </div>
       </div>
