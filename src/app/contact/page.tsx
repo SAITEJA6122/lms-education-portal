@@ -1,3 +1,6 @@
+'use client';
+
+// rest of your code
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -10,7 +13,30 @@ export default function ContactPage() {
         description="We'd love to hear from you. Get in touch with our team for any queries regarding admissions, academics, or school facilities."
       />
       
-      <section className="py-24 bg-white">
+      {/* Google Maps Section - Tamil Nadu, India */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31322.217677620963!2d78.6997775!3d11.019466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8b4c4c2b7b4e5%3A0x6b6b6b6b6b6b6b6b!2sTiruchirappalli%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="School Location Map - Tamil Nadu, India"
+              className="w-full"
+            ></iframe>
+          </div>
+          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-500">
+            <MapPin size={16} className="text-secondary" />
+            <span>123 Education Way, Trichy, Tamil Nadu, India - 620001</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white pt-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Info */}
@@ -23,7 +49,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Address</h4>
-                    <p className="text-gray-600 text-left">123 Education Way, Knowledge City, State 45678, India</p>
+                    <p className="text-gray-600 text-left">123 Education Way, Trichy,<br />Tamil Nadu, India - 620001</p>
                   </div>
                 </div>
 
@@ -33,8 +59,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Phone</h4>
-                    <p className="text-gray-600 text-left">+91 (555) 123-4567</p>
-                    <p className="text-gray-600 text-left">+91 (555) 987-6543</p>
+                    <p className="text-gray-600 text-left">+91 (431) 123-4567</p>
+                    <p className="text-gray-600 text-left">+91 (431) 987-6543</p>
                   </div>
                 </div>
 
@@ -119,16 +145,16 @@ export default function ContactPage() {
                     required
                   ></textarea>
                 </div>
-                <Button className="w-full" size="lg">
+                
+                {/* FIXED: Send Message button with icon beside text using rightIcon */}
+                <Button className="w-full" size="lg" rightIcon={<Send size={20} />}>
                   Send Message
-                  <Send className="ml-2" size={20} />
                 </Button>
               </form>
             </div>
           </div>
         </div>
       </section>
-
     </div>
   );
 }

@@ -1,0 +1,16 @@
+{
+  "name": "Girls Higher Secondary School",
+  "short_name": "GHSS",
+  "description": "Official Website of Girls Higher Secondary School",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e3a8a",
+  "theme_color": "#1e3a8a",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

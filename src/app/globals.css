@@ -32,3 +32,41 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Hide scrollbar for desktop nav while keeping functionality */
+/* Hide scrollbar for desktop nav while keeping functionality */
+/* Ensure navbar items don't get cut off */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure all nav items are visible */
+@media (min-width: 768px) {
+  nav .flex.items-center.space-x-1 {
+    min-width: 0;
+    flex: 1;
+  }
+}
+/* Ensure footer stays at bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Fix for footer overlapping */
+footer {
+  margin-top: auto;
+  position: relative;
+  clear: both;
+}
