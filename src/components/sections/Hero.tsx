@@ -9,8 +9,8 @@ import Link from 'next/link';
 
 const backgroundImages = [
   "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2070&auto=format&fit=crop",  // Working image
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop",  // Working image
+  "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop",
 ];
 
 export const Hero = () => {
@@ -103,36 +103,26 @@ export const Hero = () => {
             Empowering young women through excellence in academics, arts, and character building since 1995.
           </motion.p>
 
+          {/* CORRECTED BUTTONS SECTION - Only 2 buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap gap-3 sm:gap-4"
           >
-<<<<<<< HEAD
-            {/* FIXED: Admissions button with rightIcon */}
+            {/* Admissions Button */}
             <Link href="/admissions">
               <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-primary border-none px-6 sm:px-8 font-semibold shadow-lg hover:shadow-xl transition-all" rightIcon={<ArrowRight size={18} />}>
                 Admissions Open 2026-27
               </Button>
             </Link>
             
+            {/* Contact Us Button */}
             <Link href="/contact">
               <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary px-6 sm:px-8">
                 Contact Us
               </Button>
             </Link>
-=======
-            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold px-8">
-              Admissions Open
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold px-8">
-              Virtual Tour
-            </Button>
-            <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 font-bold px-8 group">
-              Contact Us <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
           </motion.div>
         </div>
       </div>

@@ -61,7 +61,6 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-<<<<<<< HEAD
             <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
             <ul className="space-y-3">
               <li><Link href="/admissions" className="text-gray-300 hover:text-secondary transition-colors block text-sm">Admissions</Link></li>
@@ -69,40 +68,12 @@ export const Footer = () => {
               <li><Link href="/achievements" className="text-gray-300 hover:text-secondary transition-colors block text-sm">Achievements</Link></li>
               <li><Link href="/gallery" className="text-gray-300 hover:text-secondary transition-colors block text-sm">Gallery</Link></li>
               <li><Link href="/downloads" className="text-gray-300 hover:text-secondary transition-colors block text-sm">Downloads</Link></li>
-=======
-            <h4 className="text-lg font-bold mb-6 text-white text-left">Quick Links</h4>
-            <ul className="space-y-4">
-              <li><Link href="/academics" className="text-gray-300 hover:text-secondary transition-colors block text-left">Academics</Link></li>
-              <li><Link href="/faculty" className="text-gray-300 hover:text-secondary transition-colors block text-left">Faculty Directory</Link></li>
-              <li><Link href="/infrastructure" className="text-gray-300 hover:text-secondary transition-colors block text-left">Infrastructure</Link></li>
-              <li><Link href="/student-life" className="text-gray-300 hover:text-secondary transition-colors block text-left">Student Life</Link></li>
-              <li><Link href="/achievements" className="text-gray-300 hover:text-secondary transition-colors block text-left">Achievements</Link></li>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
-            </ul>
-          </div>
-
-          {/* News & Contact */}
-          <div>
-<<<<<<< HEAD
-            <h4 className="text-lg font-bold mb-6 text-white">Resources</h4>
-            <ul className="space-y-3">
-              <li><Link href="/news" className="text-gray-300 hover:text-secondary transition-colors block text-sm">News & Announcements</Link></li>
-              <li><Link href="/events" className="text-gray-300 hover:text-secondary transition-colors block text-sm">Events Calendar</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-secondary transition-colors block text-sm">Contact Us</Link></li>
-=======
-            <h4 className="text-lg font-bold mb-6 text-white text-left">Resources</h4>
-            <ul className="space-y-4">
-              <li><Link href="/admissions" className="text-gray-300 hover:text-secondary transition-colors block text-left">Admissions</Link></li>
-              <li><Link href="/news" className="text-gray-300 hover:text-secondary transition-colors block text-left">News & Events</Link></li>
-              <li><Link href="/gallery" className="text-gray-300 hover:text-secondary transition-colors block text-left">School Gallery</Link></li>
-              <li><Link href="/downloads" className="text-gray-300 hover:text-secondary transition-colors block text-left">Downloads</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-secondary transition-colors block text-left">Contact Us</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-bold mb-6 text-white text-left">Contact Details</h4>
+            <h4 className="text-lg font-bold mb-6 text-white">Contact Details</h4>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin className="mt-1 flex-shrink-0 text-secondary" size={20} />
@@ -116,42 +87,16 @@ export const Footer = () => {
                 <Mail className="text-secondary" size={20} />
                 <span className="text-gray-300 text-left">info@lmsghss.edu</span>
               </li>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
             </ul>
-            <div className="mt-6">
-              <h4 className="text-lg font-bold mb-4 text-white">Contact</h4>
-              <ul className="space-y-3">
-                <li className="flex items-start space-x-3">
-                  <MapPin className="mt-1 flex-shrink-0 text-secondary" size={16} />
-                  <span className="text-gray-300 text-sm">123 Education Way, Knowledge City, State 45678, India</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <Phone className="text-secondary" size={16} />
-                  <span className="text-gray-300 text-sm">+91 (555) 123-4567</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <Mail className="text-secondary" size={16} />
-                  <span className="text-gray-300 text-sm">info@ghss.edu</span>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
-
-<<<<<<< HEAD
+        
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs">
           <p>© 2026 Girls Higher Secondary School. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-4 md:mt-0">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
-=======
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>© 2026 LMS Girls Higher Secondary School. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
           </div>
         </div>
       </div>

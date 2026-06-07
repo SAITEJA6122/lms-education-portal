@@ -1,6 +1,5 @@
 'use client';
 
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -16,7 +15,10 @@ import {
   Phone,
   Mail,
   MapPin,
-  GraduationCap
+  GraduationCap,
+  User,
+  Send,
+  AlertCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
@@ -72,6 +74,15 @@ const documents = [
   "Residence Proof"
 ];
 
+// New: Eligibility Criteria
+const eligibilityCriteria = [
+  { grade: "Pre-Primary (Nursery, LKG, UKG)", age: "3 - 5 years", requirement: "Basic cognitive and social readiness" },
+  { grade: "Primary (Grade 1-5)", age: "6 - 10 years", requirement: "Completion of previous grade with basic literacy" },
+  { grade: "Middle School (Grade 6-8)", age: "11 - 13 years", requirement: "60%+ in previous grade" },
+  { grade: "High School (Grade 9-10)", age: "14 - 15 years", requirement: "65%+ in Grade 8" },
+  { grade: "Senior Secondary (Grade 11-12)", age: "16 - 17 years", requirement: "70%+ in Grade 10 with subject stream eligibility" }
+];
+
 const scholarships = [
   {
     name: "Merit Scholarship",
@@ -96,40 +107,34 @@ const scholarships = [
     criteria: "Single parent/Defence personnel wards",
     benefit: "20% Tuition Fee Waiver",
     icon: Award
-=======
-import React from 'react';
-import { PageHeader } from "@/components/layout/PageHeader";
-import { motion } from "framer-motion";
-import { CheckCircle2, FileText, Calendar, Info, HelpCircle, Users } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-
-const admissionSteps = [
-  {
-    title: "Enquiry",
-    description: "Submit an online enquiry or visit the campus for detailed information about programs and facilities.",
-    icon: Info
-  },
-  {
-    title: "Application",
-    description: "Fill out the registration form available at the school office or download it from our website.",
-    icon: FileText
-  },
-  {
-    title: "Interaction",
-    description: "Scheduled interaction between the student, parents, and the admissions committee.",
-    icon: Users
-  },
-  {
-    title: "Enrollment",
-    description: "Completion of documentation and payment of fees to secure the admission.",
-    icon: CheckCircle2
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
   }
 ];
 
 export default function AdmissionsPage() {
-<<<<<<< HEAD
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [enquiryForm, setEnquiryForm] = useState({
+    parentName: '',
+    studentName: '',
+    email: '',
+    phone: '',
+    grade: '',
+    message: ''
+  });
+
+  const handleEnquirySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    // Here you would typically send the data to your backend
+    console.log('Enquiry submitted:', enquiryForm);
+    setTimeout(() => setFormSubmitted(false), 5000);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setEnquiryForm({
+      ...enquiryForm,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
     <div className="pt-20">
@@ -140,40 +145,31 @@ export default function AdmissionsPage() {
       />
 
       {/* CTA Banner - Blue background */}
-      {/* CTA Banner - Blue background */}
-<section className="py-8 bg-primary text-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-      <div className="text-center md:text-left">
-        <p className="font-bold text-lg text-white">📢 Last Date to Apply: March 31, 2026</p>
-      </div>
-      <div className="flex gap-4">
-        {/* Download Brochure Button - White outline */}
-        <Button 
-          variant="outline" 
-          className="border-white text-white hover:bg-white hover:text-primary hover:border-white transition-all duration-300" 
-          leftIcon={<Download size={18} />}
-        >
-          Download Brochure
-        </Button>
-        
-        {/* Apply Online Button - Blue background matching banner, turns white on hover */}
-        <Button 
-          className="bg-primary text-white border border-white hover:bg-white hover:text-primary transition-all duration-300 font-semibold" 
-          rightIcon={<ArrowRight size={18} />}
-        >
-          Apply Online
-        </Button>
-      </div>
-    </div>
-  </div>
-</section>
+      <section className="py-8 bg-primary text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-center md:text-left">
+              <p className="font-bold text-lg text-white">📢 Last Date to Apply: March 31, 2026</p>
+            </div>
+            <div className="flex gap-4">
+              <Button 
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-primary hover:border-white transition-all duration-300" 
+                leftIcon={<Download size={18} />}
+              >
+                Download Brochure
+              </Button>
+             
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Admission Process */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Admission Process</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Admission Procedure</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Simple 4-step process to secure your child's admission
             </p>
@@ -197,117 +193,47 @@ export default function AdmissionsPage() {
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-2 mt-4">{step.title}</h3>
                 <p className="text-gray-500 text-sm">{step.description}</p>
-=======
-  return (
-    <div className="flex flex-col min-h-screen">
-      <PageHeader 
-        title="Admissions" 
-        description="Join our community of excellence. Find everything you need to know about the admission process at LMS GHSS."
-      />
-
-      {/* Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-primary mb-6">Start Your Journey With Us</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                At LMS GHSS, we seek students who are eager to learn, grow, and contribute to our vibrant 
-                community. Our admission process is designed to be transparent, inclusive, and 
-                student-centric.
-              </p>
-              <div className="space-y-4 mb-8">
-                {[
-                  "Academic excellence and character focus",
-                  "Inclusive and diverse student body",
-                  "State-of-the-art learning facilities",
-                  "Holistic development opportunities"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center space-x-3">
-                    <CheckCircle2 className="text-secondary" size={20} />
-                    <span className="text-gray-700 font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90">Download Prospectus</Button>
-            </motion.div>
-            <div className="bg-muted rounded-[3rem] p-8 md:p-12 relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-primary mb-4">Admission Timeline</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <Calendar className="text-secondary" size={24} />
-                    </div>
-                    <div>
-                      <p className="font-bold text-primary">Applications Open</p>
-                      <p className="text-gray-600">October 1st, 2025</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <HelpCircle className="text-secondary" size={24} />
-                    </div>
-                    <div>
-                      <p className="font-bold text-primary">Entrance Tests</p>
-                      <p className="text-gray-600">January - February 2026</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <CheckCircle2 className="text-secondary" size={24} />
-                    </div>
-                    <div>
-                      <p className="font-bold text-primary">Final Selection List</p>
-                      <p className="text-gray-600">March 15th, 2026</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Steps */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-primary mb-4">The Admission Process</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Follow these simple steps to secure your admission at LMS Girls Higher Secondary School.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {admissionSteps.map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative group hover:shadow-md transition-all"
-              >
-                <div className="w-14 h-14 bg-muted rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <step.icon size={28} />
-                </div>
-                <h4 className="text-xl font-bold text-primary mb-3">{step.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center font-bold border-4 border-white">
-                  0{i + 1}
-                </div>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* Fee Structure */}
+      {/* Eligibility Criteria - NEW SECTION */}
       <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Eligibility Criteria</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Check the age and academic requirements for each grade level
+            </p>
+          </div>
+
+          <div className="overflow-x-auto bg-white rounded-2xl shadow-sm">
+            <table className="w-full">
+              <thead className="bg-primary text-white">
+                <tr>
+                  <th className="px-6 py-4 text-left">Grade Level</th>
+                  <th className="px-6 py-4 text-left">Age Criteria</th>
+                  <th className="px-6 py-4 text-left">Academic Requirement</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {eligibilityCriteria.map((item, index) => (
+                  <tr key={item.grade} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-6 py-4 font-medium text-primary">{item.grade}</td>
+                    <td className="px-6 py-4 text-gray-700">{item.age} years</td>
+                    <td className="px-6 py-4 text-gray-700">{item.requirement}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Fee Structure */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Fee Structure</h2>
@@ -316,7 +242,7 @@ export default function AdmissionsPage() {
             </p>
           </div>
 
-          <div className="overflow-x-auto bg-white rounded-2xl shadow-sm">
+          <div className="overflow-x-auto bg-gray-50 rounded-2xl shadow-sm">
             <table className="w-full">
               <thead className="bg-primary text-white">
                 <tr>
@@ -326,7 +252,7 @@ export default function AdmissionsPage() {
                   <th className="px-6 py-4 text-left">Annual Charges</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-gray-100 bg-white">
                 {feeStructure.map((fee, index) => (
                   <tr key={fee.class} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 font-medium text-primary">{fee.class}</td>
@@ -346,7 +272,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Scholarships */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Scholarships & Financial Aid</h2>
@@ -363,7 +289,7 @@ export default function AdmissionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-6 text-center hover:shadow-lg transition-shadow"
+                className="bg-white rounded-2xl p-6 text-center hover:shadow-lg transition-shadow border border-gray-100"
               >
                 <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <scholarship.icon size={32} className="text-secondary" />
@@ -377,8 +303,8 @@ export default function AdmissionsPage() {
         </div>
       </section>
 
-      {/* Required Documents & Contact */}
-      <section className="py-20 bg-gray-50">
+      {/* Required Documents & Admission Enquiry Form */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Required Documents - Left Side */}
@@ -394,74 +320,181 @@ export default function AdmissionsPage() {
               </ul>
             </div>
 
-            {/* Contact Admissions Office - Right Side - IMPROVED VISIBILITY */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-primary mb-6">Contact Admissions Office</h2>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
-                    <Phone className="text-secondary" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Call Us</p>
-                    <p className="font-medium text-gray-800">+91 (431) 123-4567</p>
-                    <p className="font-medium text-gray-800">+91 (431) 987-6543</p>
-                  </div>
+            {/* Admission Enquiry Form - Right Side (NEW) */}
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-primary mb-6">Admission Enquiry Form</h2>
+              {formSubmitted ? (
+                <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+                  <CheckCircle size={48} className="text-green-500 mx-auto mb-3" />
+                  <h3 className="text-lg font-semibold text-green-700 mb-2">Enquiry Sent!</h3>
+                  <p className="text-green-600">Thank you for your interest. Our admissions team will contact you shortly.</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
-                    <Mail className="text-secondary" size={20} />
-                  </div>
+              ) : (
+                <form onSubmit={handleEnquirySubmit} className="space-y-4">
                   <div>
-                    <p className="text-sm text-gray-500">Email</p>
-                    <p className="font-medium text-gray-800">info@ghss.edu</p>
-                    <p className="font-medium text-gray-800">admissions@ghss.edu</p>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                      <Users size={14} className="inline mr-1" /> Parent/Guardian Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="parentName"
+                      required
+                      value={enquiryForm.parentName}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                      placeholder="Enter parent/guardian name"
+                    />
                   </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                      <User size={14} className="inline mr-1" /> Student Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="studentName"
+                      required
+                      value={enquiryForm.studentName}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                      placeholder="Enter student name"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Email *</label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={enquiryForm.email}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Phone Number *</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        value={enquiryForm.phone}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                        placeholder="+91 XXXXXXXXXX"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                      <GraduationCap size={14} className="inline mr-1" /> Applying for Grade *
+                    </label>
+                    <select
+                      name="grade"
+                      required
+                      value={enquiryForm.grade}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                    >
+                      <option value="">Select Grade</option>
+                      <option value="Nursery">Nursery</option>
+                      <option value="LKG">LKG</option>
+                      <option value="UKG">UKG</option>
+                      <option value="1">Grade 1</option>
+                      <option value="2">Grade 2</option>
+                      <option value="3">Grade 3</option>
+                      <option value="4">Grade 4</option>
+                      <option value="5">Grade 5</option>
+                      <option value="6">Grade 6</option>
+                      <option value="7">Grade 7</option>
+                      <option value="8">Grade 8</option>
+                      <option value="9">Grade 9</option>
+                      <option value="10">Grade 10</option>
+                      <option value="11">Grade 11</option>
+                      <option value="12">Grade 12</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Message / Query</label>
+                    <textarea
+                      name="message"
+                      rows={3}
+                      value={enquiryForm.message}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                      placeholder="Any specific questions or requirements?"
+                    />
+                  </div>
+
+                  <Button type="submit" className="w-full" size="lg" rightIcon={<Send size={18} />}>
+                    Submit Enquiry
+                  </Button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Admissions Office */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-8 shadow-sm max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-primary mb-6 text-center">Contact Admissions Office</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
+                  <Phone className="text-secondary" size={20} />
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
-                    <Clock className="text-secondary" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Working Hours</p>
-                    <p className="font-medium text-gray-800">Monday - Saturday: 9:00 AM - 4:00 PM</p>
-                    <p className="text-gray-600 text-sm">Sunday: Closed</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
-                    <MapPin className="text-secondary" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Visit Us</p>
-                    <p className="font-medium text-gray-800">123 Education Way, Trichy</p>
-                    <p className="text-gray-600 text-sm">Tamil Nadu, India - 620001</p>
-                  </div>
+                <div>
+                  <p className="text-sm text-gray-500">Call Us</p>
+                  <p className="font-medium text-gray-800">+91 (431) 123-4567</p>
+                  <p className="font-medium text-gray-800">+91 (431) 987-6543</p>
                 </div>
               </div>
-              <div className="mt-6 pt-6 border-t border-gray-100">
-                <Button variant="primary" className="w-full">
-                  Schedule Campus Visit
-                </Button>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
+                  <Mail className="text-secondary" size={20} />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Email</p>
+                  <p className="font-medium text-gray-800">info@lmsghss.edu</p>
+                  <p className="font-medium text-gray-800">admissions@lmsghss.edu</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
+                  <Clock className="text-secondary" size={20} />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Working Hours</p>
+                  <p className="font-medium text-gray-800">Monday - Saturday: 9:00 AM - 4:00 PM</p>
+                  <p className="text-gray-600 text-sm">Sunday: Closed</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
+                  <MapPin className="text-secondary" size={20} />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Visit Us</p>
+                  <p className="font-medium text-gray-800">123 Education Way, Trichy</p>
+                  <p className="text-gray-600 text-sm">Tamil Nadu, India - 620001</p>
+                </div>
               </div>
             </div>
-=======
-      {/* Enquiry CTA */}
-      <section className="py-20 bg-primary text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Have Questions?</h2>
-          <p className="text-xl text-gray-300 mb-10">Our admissions team is here to help you with any queries you might have.</p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold px-10">Enquire Now</Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold px-10">Contact Support</Button>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
+            <div className="mt-6 pt-6 border-t border-gray-100 text-center">
+              <Button variant="primary">
+                Schedule Campus Visit
+              </Button>
+            </div>
           </div>
         </div>
       </section>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5

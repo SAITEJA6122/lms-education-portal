@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
+import { PageHeader } from '@/components/layout/PageHeader';
 
 const programs = [
   {
@@ -65,49 +66,20 @@ const streams = [
 export default function AcademicProgramsPage() {
   return (
     <div className="pt-20">
-      {/* Page Header */}
-      <section className="relative bg-gradient-to-r from-primary to-secondary py-20">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-          >
-            Academic Programs
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-gray-100 max-w-3xl mx-auto"
-          >
-            Discover our comprehensive curriculum designed for holistic development
-          </motion.p>
-        </div>
-      </section>
+      {/* Page Header - Using PageHeader component for consistent blue theme */}
+      <PageHeader 
+        title="Academic Programs" 
+        description="Discover our comprehensive curriculum designed for holistic development"
+      />
 
       {/* Programs Grid */}
-      <section className="py-20 bg-gray-50/50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-primary mb-3"
-            >
-              Our Educational Programs
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-gray-600 max-w-2xl mx-auto"
-            >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Our Educational Programs</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Choose the right path for your child's bright future
-            </motion.p>
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -146,26 +118,13 @@ export default function AcademicProgramsPage() {
       </section>
 
       {/* Streams Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-primary mb-3"
-            >
-              Senior Secondary Streams
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-gray-600 max-w-2xl mx-auto"
-            >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Senior Secondary Streams</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Specialized streams for Grades 11-12 with expert faculty
-            </motion.p>
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -176,10 +135,12 @@ export default function AcademicProgramsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors"
+                className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-100"
               >
                 <div className="flex items-start gap-3">
-                  <stream.icon className="text-secondary mt-1" size={24} />
+                  <div className="w-10 h-10 bg-secondary/20 rounded-xl flex items-center justify-center">
+                    <stream.icon className="text-secondary" size={20} />
+                  </div>
                   <div>
                     <h3 className="font-bold text-primary mb-2">{stream.name}</h3>
                     <p className="text-sm text-gray-600">{stream.subjects}</p>
@@ -192,38 +153,19 @@ export default function AcademicProgramsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
+      <section className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl font-bold text-white mb-4"
-          >
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to Begin Your Journey?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-100 mb-8 max-w-2xl mx-auto"
-          >
+          </h2>
+          <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
             Join us for the academic year 2026-27. Limited seats available.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <Link href="/admissions">
-              {/* FIXED: Button with rightIcon */}
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary" rightIcon={<ChevronRight size={18} />}>
-                Apply for Admissions
-              </Button>
-            </Link>
-          </motion.div>
+          </p>
+          <Link href="/admissions">
+            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary" rightIcon={<ChevronRight size={18} />}>
+              Apply for Admissions
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

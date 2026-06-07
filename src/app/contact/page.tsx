@@ -2,7 +2,7 @@
 
 // rest of your code
 import { PageHeader } from "@/components/layout/PageHeader";
-import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Clock, User, GraduationCap, Users } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 export default function ContactPage() {
@@ -49,14 +49,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Address</h4>
-<<<<<<< HEAD
                     <p className="text-gray-600 text-left">123 Education Way, Trichy,<br />Tamil Nadu, India - 620001</p>
-=======
-                    <p className="text-gray-600 text-left">Neyyoor, Kanyakumari District, Tamil Nadu, 629802</p>
-                    <p className="text-secondary text-sm font-medium mt-2 text-left italic">
-                      Located near Paul Dental Hospital on Neiyur Road, Thingalnagar
-                    </p>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
                   </div>
                 </div>
 
@@ -66,12 +59,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-primary mb-1 text-left">Phone</h4>
-<<<<<<< HEAD
                     <p className="text-gray-600 text-left">+91 (431) 123-4567</p>
                     <p className="text-gray-600 text-left">+91 (431) 987-6543</p>
-=======
-                    <p className="text-gray-600 text-left">(04651) 270536</p>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
                   </div>
                 </div>
 
@@ -106,22 +95,39 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Contact Form - Updated with separate Parent Name and Student Name */}
             <div className="bg-gray-50 p-10 rounded-3xl shadow-sm">
               <h3 className="text-2xl font-bold text-primary mb-8 text-left">Send us a Message</h3>
               <form className="space-y-6">
+                {/* Parent Name */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2 text-left">
+                    <Users size={14} className="inline mr-1" /> Parent/Guardian Name *
+                  </label>
+                  <input 
+                    type="text" 
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                    placeholder="Enter parent/guardian full name"
+                    required
+                  />
+                </div>
+
+                {/* Student Name */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2 text-left">
+                    <User size={14} className="inline mr-1" /> Student Name *
+                  </label>
+                  <input 
+                    type="text" 
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                    placeholder="Enter student full name"
+                    required
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Name</label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
-                      placeholder="Your Name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Email</label>
+                    <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Email *</label>
                     <input 
                       type="email" 
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
@@ -129,27 +135,63 @@ export default function ContactPage() {
                       required
                     />
                   </div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Phone Number</label>
+                    <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Phone Number *</label>
                     <input 
                       type="tel" 
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
                       placeholder="Your Phone Number"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Subject</label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
-                      placeholder="Subject"
+                      required
                     />
                   </div>
                 </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Grade/Class */}
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2 text-left">
+                      <GraduationCap size={14} className="inline mr-1" /> Grade/Class *
+                    </label>
+                    <select 
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                      required
+                    >
+                      <option value="">Select Grade</option>
+                      <option value="Nursery">Nursery</option>
+                      <option value="LKG">LKG</option>
+                      <option value="UKG">UKG</option>
+                      <option value="1">Grade 1</option>
+                      <option value="2">Grade 2</option>
+                      <option value="3">Grade 3</option>
+                      <option value="4">Grade 4</option>
+                      <option value="5">Grade 5</option>
+                      <option value="6">Grade 6</option>
+                      <option value="7">Grade 7</option>
+                      <option value="8">Grade 8</option>
+                      <option value="9">Grade 9</option>
+                      <option value="10">Grade 10</option>
+                      <option value="11">Grade 11</option>
+                      <option value="12">Grade 12</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Subject</label>
+                    <select 
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-gray-900"
+                    >
+                      <option value="">Select Subject</option>
+                      <option value="Admissions">Admissions Enquiry</option>
+                      <option value="General">General Query</option>
+                      <option value="Feedback">Feedback</option>
+                      <option value="Complaint">Complaint</option>
+                      <option value="Fee Structure">Fee Structure</option>
+                      <option value="Scholarship">Scholarship</option>
+                    </select>
+                  </div>
+                </div>
+
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Message</label>
+                  <label className="block text-sm font-bold text-gray-700 mb-2 text-left">Message *</label>
                   <textarea 
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all min-h-[150px] text-gray-900"
                     placeholder="How can we help you?"
@@ -157,7 +199,7 @@ export default function ContactPage() {
                   ></textarea>
                 </div>
                 
-                {/* FIXED: Send Message button with icon beside text using rightIcon */}
+                {/* Send Message Button */}
                 <Button className="w-full" size="lg" rightIcon={<Send size={20} />}>
                   Send Message
                 </Button>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -14,7 +14,6 @@ const geistSans = Geist({
   display: "swap", // Improves font loading performance
 });
 
-<<<<<<< HEAD
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -24,10 +23,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://ghss.edu' : 'http://localhost:3000'),
   title: {
-    default: "Girls Higher Secondary School | Official Website",
-    template: "%s | Girls Higher Secondary School",
+    default: "LMS Girls Higher Secondary School | Official Website",
+    template: "%s | LMS Girls Higher Secondary School",
   },
-  description: "Official Website of Girls Higher Secondary School. Empowering the next generation of leaders with quality education and character development since 1995.",
+  description: "Official Website of LMS Girls Higher Secondary School. Empowering the next generation of leaders with quality education and character development since 1995.",
   keywords: [
     "girls school",
     "higher secondary school",
@@ -36,11 +35,11 @@ export const metadata: Metadata = {
     "girls education",
     "best school in district",
     "GHSS",
-    "girls higher secondary school"
+    "LMS girls higher secondary school"
   ],
   authors: [{ name: "GHSS" }],
-  creator: "Girls Higher Secondary School",
-  publisher: "Girls Higher Secondary School",
+  creator: "LMS Girls Higher Secondary School",
+  publisher: "LMS Girls Higher Secondary School",
   formatDetection: {
     email: true,
     address: true,
@@ -58,43 +57,26 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Girls Higher Secondary School",
-    description: "Official Website of Girls Higher Secondary School - Empowering young women through excellence in education since 1995.",
+    title: "LMS Girls Higher Secondary School",
+    description: "Official Website of LMS Girls Higher Secondary School - Empowering young women through excellence in education since 1995.",
     type: "website",
     locale: "en_US",
     url: "https://ghss.edu",
-    siteName: "Girls Higher Secondary School",
+    siteName: "LMS Girls Higher Secondary School",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Girls Higher Secondary School Campus",
+        alt: "LMS Girls Higher Secondary School Campus",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Girls Higher Secondary School",
-    description: "Official Website of Girls Higher Secondary School",
+    title: "LMS Girls Higher Secondary School",
+    description: "Official Website of LMS Girls Higher Secondary School",
     images: ["/og-image.jpg"],
-=======
-export const metadata: Metadata = {
-  title: "LMS Girls Higher Secondary School | Official Website",
-  description: "Official Website of LMS Girls Higher Secondary School. Empowering the next generation of leaders with quality education and character development.",
-  openGraph: {
-    title: "LMS Girls Higher Secondary School",
-    description: "Official Website of LMS Girls Higher Secondary School",
-    type: "website",
-    locale: "en_US",
-    url: "https://ghss.edu",
-    siteName: "LMS Girls Higher Secondary School",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "LMS Girls Higher Secondary School",
-    description: "Official Website of LMS Girls Higher Secondary School",
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
   },
   icons: {
     icon: [
@@ -117,7 +99,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-<<<<<<< HEAD
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Viewport settings for better mobile responsiveness */}
@@ -136,10 +117,6 @@ export default function RootLayout({
       <body 
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-=======
-    <html lang="en">
-      <body className={`${geistSans.variable} antialiased min-h-screen flex flex-col`}>
->>>>>>> 38930c0e946a16627b65f554171b49edd5686fb5
         <Navbar />
         <Breadcrumbs />
         <main id="main-content" className="flex-grow pt-20" tabIndex={-1}>
