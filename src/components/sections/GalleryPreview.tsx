@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 
-const images = [
+// Default images in case API fails or no data
+const defaultImages = [
   { id: 1, src: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800&auto=format&fit=crop", alt: "Students in Classroom", span: "md:col-span-2 md:row-span-2", category: "Academics" },
   { id: 2, src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop", alt: "Science Lab", category: "Facilities" },
   { id: 3, src: "https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=800&auto=format&fit=crop", alt: "School Library", category: "Facilities" },
@@ -15,8 +16,39 @@ const images = [
 ];
 
 export const GalleryPreview = () => {
-  const [selectedImage, setSelectedImage] = useState<typeof images[0] | null>(null);
+  const [images, setImages] = useState(defaultImages);
+  const [selectedImage, setSelectedImage] = useState<any | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch gallery images from API
+  useEffect(() => {
+    async function fetchGallery() {
+      try {
+        const response = await fetch('/api/gallery');
+        const result = await response.json();
+        
+        if (result.success && result.data && result.data.length > 0) {
+          // Transform API data to match component format
+          const transformedImages = result.data.map((item: any, index: number) => ({
+            id: item.id,
+            src: item.image_url,
+            alt: item.title || `Gallery image ${index + 1}`,
+            category: item.category || 'Gallery',
+            span: index === 0 ? "md:col-span-2 md:row-span-2" : undefined // First image gets span
+          }));
+          setImages(transformedImages);
+        }
+      } catch (error) {
+        console.error('Error fetching gallery:', error);
+        // Keep default images
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchGallery();
+  }, []);
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);
@@ -53,6 +85,24 @@ export const GalleryPreview = () => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedImage, selectedIndex]);
+
+  if (loading) {
+    return (
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[220px]">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="bg-gray-200 rounded-2xl animate-pulse"></div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (images.length === 0) {
+    return null; // Don't show section if no images
+  }
 
   return (
     <>
@@ -95,7 +145,7 @@ export const GalleryPreview = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[220px]">
-            {images.map((img, index) => (
+            {images.slice(0, 5).map((img, index) => (
               <motion.div
                 key={img.id}
                 initial={{ opacity: 0, y: 20 }}

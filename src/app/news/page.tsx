@@ -14,109 +14,89 @@ import {
   X,
   Clock,
   Heart,
-  Share2
+  Share2,
+  Newspaper
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { PageHeader } from '@/components/layout/PageHeader';
 
-const allNewsItems = [
-  {
-    id: 1,
-    title: "Annual Sports Day 2026 - Registration Open",
-    date: "March 15, 2026",
-    category: "Event",
-    icon: Trophy,
-    color: "text-orange-600 bg-orange-50",
-    link: "/events",
-    excerpt: "Registration for Annual Sports Day 2026 is now open for students of classes 6-12.",
-    content: "The much-awaited Annual Sports Day 2026 will be held on April 15, 2026. Students interested in participating in various athletic events including 100m, 200m, 400m races, long jump, high jump, and relay races can register through their respective class teachers. Last date to register is March 25, 2026."
-  },
-  {
-    id: 2,
-    title: "CBSE Board Exam Results 2025 - Outstanding Performance",
-    date: "March 10, 2026",
-    category: "Achievement",
-    icon: Award,
-    color: "text-green-600 bg-green-50",
-    link: "/achievements",
-    excerpt: "Our students achieved 98.6% pass rate with 45 students scoring above 95%.",
-    content: "We are proud to announce that our students have excelled in the CBSE Board Examinations 2025. The school achieved a 98.6% pass rate with 45 students scoring above 95%. Special congratulations to our toppers: Riya Sharma (98.6%), Neha Gupta (98.2%), and Priya Singh (97.8%)."
-  },
-  {
-    id: 3,
-    title: "Parent-Teacher Meeting Schedule for Session 2026-27",
-    date: "March 5, 2026",
-    category: "Announcement",
-    icon: Megaphone,
-    color: "text-blue-600 bg-blue-50",
-    link: "#",
-    excerpt: "First Parent-Teacher Meeting of the academic session will be held on March 28, 2026.",
-    content: "The first Parent-Teacher Meeting of the academic session 2026-27 is scheduled for March 28, 2026 from 9:00 AM to 3:00 PM. Parents are requested to collect the progress reports and discuss their ward's performance with respective subject teachers."
-  },
-  {
-    id: 4,
-    title: "New Scholarship Program Announced for Meritorious Students",
-    date: "February 28, 2026",
-    category: "Announcement",
-    icon: Users,
-    color: "text-purple-600 bg-purple-50",
-    link: "/admissions",
-    excerpt: "Merit-based scholarship program launched for academically outstanding students.",
-    content: "The school has launched a new merit-based scholarship program for academically outstanding students. Students securing 90%+ in previous class will be eligible for up to 50% tuition fee waiver. Apply before March 31, 2026."
-  },
-  {
-    id: 5,
-    title: "Summer Vacation Notice",
-    date: "February 25, 2026",
-    category: "Announcement",
-    icon: Calendar,
-    color: "text-teal-600 bg-teal-50",
-    link: "#",
-    excerpt: "School will remain closed for summer vacation from May 1 to June 30, 2026.",
-    content: "The school will remain closed for summer vacation from May 1, 2026 to June 30, 2026. The new academic session will commence on July 1, 2026."
-  },
-  {
-    id: 6,
-    title: "Inter-School Debate Competition Winners",
-    date: "February 20, 2026",
-    category: "Achievement",
-    icon: Award,
-    color: "text-pink-600 bg-pink-50",
-    link: "/achievements",
-    excerpt: "Our students won first prize in the District Level Inter-School Debate Competition.",
-    content: "Congratulations to our debate team for winning first prize at the District Level Inter-School Debate Competition. The team consisting of Aanya Verma and Kavya Joshi argued brilliantly on the topic 'Future of AI in Education'."
-  },
-  {
-    id: 7,
-    title: "Science Exhibition 2026",
-    date: "February 15, 2026",
-    category: "Event",
-    icon: BookOpen,
-    color: "text-indigo-600 bg-indigo-50",
-    link: "/events",
-    excerpt: "Annual Science Exhibition to be held on April 5, 2026. All students invited to participate.",
-    content: "The Annual Science Exhibition 2026 will be held on April 5, 2026. Students from classes 6-12 can showcase their innovative projects. Last date for registration is March 20, 2026."
-  },
-  {
-    id: 8,
-    title: "Foundation Day Celebration",
-    date: "February 10, 2026",
-    category: "Event",
-    icon: Heart,
-    color: "text-rose-600 bg-rose-50",
-    link: "/events",
-    excerpt: "School's 30th Foundation Day to be celebrated on March 1, 2026.",
-    content: "Join us in celebrating the 30th Foundation Day of our school on March 1, 2026. Chief guest Dr. APJ Abdul Kalam's former aide will address the students. Cultural performances by students will be the highlight of the event."
-  }
-];
+// Map category to icon and color
+const getCategoryStyle = (category: string) => {
+  const categories: Record<string, { icon: any; color: string }> = {
+    'Event': { icon: Trophy, color: 'text-orange-600 bg-orange-50' },
+    'Achievement': { icon: Award, color: 'text-green-600 bg-green-50' },
+    'Announcement': { icon: Megaphone, color: 'text-blue-600 bg-blue-50' },
+    'Admissions': { icon: Users, color: 'text-purple-600 bg-purple-50' },
+    'Academic': { icon: BookOpen, color: 'text-indigo-600 bg-indigo-50' },
+    'Celebration': { icon: Heart, color: 'text-rose-600 bg-rose-50' },
+    'General': { icon: Newspaper, color: 'text-gray-600 bg-gray-50' },
+  };
+  return categories[category] || { icon: Newspaper, color: 'text-gray-600 bg-gray-50' };
+};
 
-const categories = ["All", "Announcement", "Event", "Achievement"];
+// Format date
+const formatDate = (dateString: string) => {
+  if (!dateString) return 'Date not specified';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+};
 
 export default function NewsPage() {
+  const [newsItems, setNewsItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedNews, setSelectedNews] = useState<typeof allNewsItems[0] | null>(null);
+  const [selectedNews, setSelectedNews] = useState<any | null>(null);
+
+  // Fetch news from API
+  useEffect(() => {
+    async function fetchNews() {
+      try {
+        const response = await fetch('/api/news');
+        const result = await response.json();
+        
+        if (result.success && result.data && result.data.length > 0) {
+          // Transform API data to match component format
+          const transformedNews = result.data.map((item: any) => {
+            // Determine category based on content or default to 'General'
+            let category = 'General';
+            const title = (item.title || item.Heading || '').toLowerCase();
+            if (title.includes('sports') || title.includes('event')) category = 'Event';
+            else if (title.includes('result') || title.includes('achievement') || title.includes('winner')) category = 'Achievement';
+            else if (title.includes('announcement') || title.includes('notice')) category = 'Announcement';
+            else if (title.includes('admission')) category = 'Admissions';
+            else if (title.includes('celebration') || title.includes('foundation')) category = 'Celebration';
+            
+            const { icon, color } = getCategoryStyle(category);
+            
+            return {
+              id: item.id,
+              title: item.title || item.Heading,
+              date: formatDate(item.date),
+              category: category,
+              icon: icon,
+              color: color,
+              link: `/news/${item.id}`,
+              excerpt: (item.content || '').substring(0, 120) + '...',
+              content: item.content || 'No additional content available.'
+            };
+          });
+          setNewsItems(transformedNews);
+        }
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchNews();
+  }, []);
 
   // Handle body scroll when modal is open/closed
   useEffect(() => {
@@ -130,12 +110,40 @@ export default function NewsPage() {
     };
   }, [selectedNews]);
 
-  const filteredNews = allNewsItems.filter(news => {
+  // Get unique categories from news items
+  const categories = ["All", ...new Set(newsItems.map(n => n.category).filter(Boolean))];
+
+  const filteredNews = newsItems.filter(news => {
     const matchesCategory = selectedCategory === "All" || news.category === selectedCategory;
     const matchesSearch = news.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           news.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  if (loading) {
+    return (
+      <div className="pt-20 min-h-screen">
+        <PageHeader 
+          title="News & Announcements" 
+          description="Stay informed about the latest updates, events, and achievements"
+        />
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="bg-white rounded-2xl p-6 animate-pulse">
+                  <div className="w-10 h-10 bg-gray-200 rounded-xl mb-3"></div>
+                  <div className="h-5 bg-gray-200 rounded w-3/4 mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded w-full mb-4"></div>
+                  <div className="h-8 bg-gray-200 rounded w-1/3"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-20 min-h-screen">
@@ -198,44 +206,47 @@ export default function NewsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
-              {filteredNews.map((news, index) => (
-                <motion.div
-                  key={news.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (index % 9) * 0.05 }}
-                  whileHover={{ y: -5 }}
-                  onClick={() => setSelectedNews(news)}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                >
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className={`p-2 rounded-xl ${news.color}`}>
-                        <news.icon size={20} />
+              {filteredNews.map((news, index) => {
+                const IconComponent = news.icon;
+                return (
+                  <motion.div
+                    key={news.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: (index % 9) * 0.05 }}
+                    whileHover={{ y: -5 }}
+                    onClick={() => setSelectedNews(news)}
+                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                  >
+                    <div className="p-6">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className={`p-2 rounded-xl ${news.color}`}>
+                          <IconComponent size={20} />
+                        </div>
+                        <span className="text-xs text-gray-400 flex items-center gap-1">
+                          <Calendar size={12} />
+                          {news.date}
+                        </span>
                       </div>
-                      <span className="text-xs text-gray-400 flex items-center gap-1">
-                        <Calendar size={12} />
-                        {news.date}
-                      </span>
+                      <h3 className="font-bold text-primary text-lg mb-2 group-hover:text-secondary transition-colors line-clamp-2">
+                        {news.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm mb-4 line-clamp-2">
+                        {news.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className={`text-xs font-medium px-2 py-1 rounded-full ${news.color}`}>
+                          {news.category}
+                        </span>
+                        <span className="text-secondary text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                          Read More
+                          <ChevronRight size={14} />
+                        </span>
+                      </div>
                     </div>
-                    <h3 className="font-bold text-primary text-lg mb-2 group-hover:text-secondary transition-colors line-clamp-2">
-                      {news.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm mb-4 line-clamp-2">
-                      {news.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className={`text-xs font-medium px-2 py-1 rounded-full ${news.color}`}>
-                        {news.category}
-                      </span>
-                      <span className="text-secondary text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                        Read More
-                        <ChevronRight size={14} />
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -286,17 +297,15 @@ export default function NewsPage() {
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
             >
-              <div className={`p-6 border-b border-gray-100 ${selectedNews.color.replace('bg-', 'border-l-4 border-')}`}>
+              <div className={`p-6 border-b border-gray-100`}>
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-3">
                     <div className={`p-2 rounded-xl ${selectedNews.color}`}>
                       <selectedNews.icon size={24} />
                     </div>
-                    <div>
-                      <span className={`text-sm font-bold px-2 py-1 rounded-full ${selectedNews.color}`}>
-                        {selectedNews.category}
-                      </span>
-                    </div>
+                    <span className={`text-sm font-bold px-2 py-1 rounded-full ${selectedNews.color}`}>
+                      {selectedNews.category}
+                    </span>
                   </div>
                   <button
                     onClick={() => setSelectedNews(null)}
@@ -324,7 +333,7 @@ export default function NewsPage() {
                     Share
                     <Share2 size={14} className="ml-2" />
                   </Button>
-                  {selectedNews.link !== "#" && (
+                  {selectedNews.link && selectedNews.link !== "#" && (
                     <Link href={selectedNews.link}>
                       <Button variant="outline" size="sm" rightIcon={<ChevronRight size={14} />}>
                         Learn More

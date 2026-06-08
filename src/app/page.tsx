@@ -7,20 +7,17 @@ import { QuickInformationCards } from "@/components/sections/QuickInformationCar
 import { PrincipalMessage } from "@/components/sections/PrincipalMessage";
 import { Highlights } from "@/components/sections/Highlights";
 import { LatestNews } from "@/components/sections/LatestNews";
-
 import { AchievementsPreview } from "@/components/sections/AchievementsPreview";
-
 import { Achievements } from "@/components/sections/Achievements";
-
 
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => mod.Testimonials), {
   loading: () => <div className="py-24 bg-gray-50 flex items-center justify-center">Loading Testimonials...</div>,
-  ssr: false  // ← ADD THIS - prevents SSR for client-only component
+  ssr: false
 });
 
 const GalleryPreview = dynamic(() => import("@/components/sections/GalleryPreview").then(mod => mod.GalleryPreview), {
   loading: () => <div className="py-24 bg-white flex items-center justify-center">Loading Gallery...</div>,
-  ssr: false  // ← ADD THIS - prevents SSR for client-only component
+  ssr: false
 });
 
 export default function Home() {
@@ -29,13 +26,11 @@ export default function Home() {
       <Hero />
       <SchoolIntroduction />
       <QuickInformationCards />
-      <PrincipalMessage />
+      <PrincipalMessage />  {/* Component fetches its own data */}
       <Achievements />
       <Highlights />
       <LatestNews />
-
       <AchievementsPreview />
-
       <Testimonials />
       <GalleryPreview />
     </div>
