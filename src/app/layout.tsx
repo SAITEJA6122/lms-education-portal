@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+<<<<<<< HEAD
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { FloatingAdmissionButton } from "@/components/ui/FloatingAdmissionButton";
+=======
+
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
+>>>>>>> 8f2421f (Added admin dashboard with News, Events, Faculty, Gallery and Achievements CRUD modules)
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +26,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+<<<<<<< HEAD
   metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://ghss.edu' : 'http://localhost:3000'),
   title: {
     default: "LMS Girls Higher Secondary School | Official Website",
@@ -91,14 +97,19 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   category: "education",
+=======
+  title: "LMS Girls Higher Secondary School",
+  description: "Official Website of LMS Girls Higher Secondary School",
+>>>>>>> 8f2421f (Added admin dashboard with News, Events, Faculty, Gallery and Achievements CRUD modules)
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
+<<<<<<< HEAD
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Viewport settings for better mobile responsiveness */}
@@ -117,15 +128,18 @@ export default function RootLayout({
       <body 
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <Navbar />
-        <Breadcrumbs />
-        <main id="main-content" className="flex-grow pt-20" tabIndex={-1}>
+      <LayoutWrapper>
+        {children}
+      </LayoutWrapper>
+=======
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} antialiased min-h-screen flex flex-col`}
+      >
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
-        <BackToTop />
-        <WhatsAppWidget />
-        <FloatingAdmissionButton />
+        </LayoutWrapper>
+>>>>>>> 8f2421f (Added admin dashboard with News, Events, Faculty, Gallery and Achievements CRUD modules)
       </body>
     </html>
   );
