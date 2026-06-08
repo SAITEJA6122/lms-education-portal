@@ -15,6 +15,16 @@ const defaultImages = [
   { id: 5, src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop", alt: "Art Class", category: "Activities" },
 ];
 
+// Helper function to validate image URLs
+const isValidImageUrl = (url: string) => {
+  if (!url) return false;
+  // Reject Google search URLs
+  if (url.includes('google.com/imgres')) return false;
+  if (url.includes('google.com/url')) return false;
+  // Accept direct image URLs
+  return url.startsWith('https://') || url.startsWith('http://');
+};
+
 export const GalleryPreview = () => {
   const [images, setImages] = useState(defaultImages);
   const [selectedImage, setSelectedImage] = useState<any | null>(null);
@@ -29,15 +39,22 @@ export const GalleryPreview = () => {
         const result = await response.json();
         
         if (result.success && result.data && result.data.length > 0) {
-          // Transform API data to match component format
-          const transformedImages = result.data.map((item: any, index: number) => ({
-            id: item.id,
-            src: item.image_url,
-            alt: item.title || `Gallery image ${index + 1}`,
-            category: item.category || 'Gallery',
-            span: index === 0 ? "md:col-span-2 md:row-span-2" : undefined // First image gets span
-          }));
-          setImages(transformedImages);
+          // Filter and transform API data to match component format
+          const validImages = result.data.filter((item: any) => isValidImageUrl(item.image_url));
+          
+          if (validImages.length > 0) {
+            const transformedImages = validImages.map((item: any, index: number) => ({
+              id: item.id,
+              src: item.image_url,
+              alt: item.title || `Gallery image ${index + 1}`,
+              category: item.category || 'Gallery',
+              span: index === 0 ? "md:col-span-2 md:row-span-2" : undefined // First image gets span
+            }));
+            setImages(transformedImages);
+          } else {
+            // If no valid images, keep default images
+            console.log('No valid gallery images found, using defaults');
+          }
         }
       } catch (error) {
         console.error('Error fetching gallery:', error);
@@ -167,6 +184,11 @@ export const GalleryPreview = () => {
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
+                  onError={(e) => {
+                    // If image fails to load, hide it
+                    const target = e.target as HTMLElement;
+                    target.style.display = 'none';
+                  }}
                 />
                 
                 {/* Category badge */}
