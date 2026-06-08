@@ -3,11 +3,12 @@ import { supabase } from '@/lib/supabase/client'
 
 export async function GET() {
   try {
-    // If you have a Testimonials table
+    // Remove order by created_at since column doesn't exist
     const { data, error } = await supabase
-      .from('Testimonials') // Change to your actual table name
+      .from('Testimonials')
       .select('*')
-      .order('created_at', { ascending: false })
+      // Remove this line if created_at doesn't exist:
+      // .order('created_at', { ascending: false })
     
     if (error) throw error
     
@@ -19,7 +20,7 @@ export async function GET() {
     console.error('API Error:', error)
     return NextResponse.json(
       { success: false, data: [], error: 'Failed to fetch testimonials' },
-      { status: 200 } // Return 200 so component uses defaults
+      { status: 200 }
     )
   }
 }
