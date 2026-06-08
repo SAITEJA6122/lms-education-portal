@@ -97,9 +97,6 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   category: "education",
-  title: "LMS Girls Higher Secondary School",
-  description: "Official Website of LMS Girls Higher Secondary School",
-
 };
 
 export default function RootLayout({
