@@ -6,12 +6,24 @@ export async function GET() {
     const { data, error } = await supabase
       .from('Faculty')
       .select('*')
-      .order('order', { ascending: true })
     
     if (error) throw error
     
+    // Transform data to match what the frontend expects
+    const transformedData = (data || []).map((item: any) => ({
+      id: item.id,
+      name: item.faculty_name,
+      designation: item.designation || 'Faculty Member',
+      department: item.department || 'General',
+      qualification: item.qualification || 'Qualified Educator',
+      experience: item.experience || 'Experienced',
+      image: item.photo_url || null,
+      order: item.order || 0,
+      is_active: item.is_active !== false
+    }));
+    
     return NextResponse.json(
-      { success: true, data: data || [] },
+      { success: true, data: transformedData },
       { status: 200 }
     )
   } catch (error) {

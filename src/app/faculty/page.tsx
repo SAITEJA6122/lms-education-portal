@@ -19,9 +19,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { PageHeader } from "@/components/layout/PageHeader";
 
-// Department list (can also be dynamic from API)
-const departments = ["All", "Science", "Mathematics", "Languages", "Social Studies", "Arts & Sports", "Commerce", "Computer Science"];
-
 export default function FacultyPage() {
   const [facultyMembers, setFacultyMembers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,19 +33,19 @@ export default function FacultyPage() {
         const response = await fetch('/api/faculty');
         const result = await response.json();
         
-        if (result.success && result.data && result.data.length > 0) {
-          // Transform API data to match component format
+        if (result.success && result.data) {
+          // Transform API data to match component format (only using available fields)
           const transformedFaculty = result.data.map((item: any) => ({
             id: item.id,
-            name: item.name || item.faculty_name,
-            designation: item.designation || "Faculty Member",
+            name: item.faculty_name || item.name || "Faculty Member",
+            designation: item.designation || "Faculty",
             department: item.department || "General",
             qualification: item.qualification || "Qualified Educator",
             experience: item.experience || "Experienced",
-            email: item.email || "faculty@lmsghss.edu",
+            email: item.email || "contact@lmsghss.edu",
             phone: item.phone || "+91 98765 43210",
-            achievements: item.achievements || ["Dedicated Educator"],
-            image: item.photo_url || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+            achievements: item.achievements || ["Dedicated to student success"],
+            image: item.photo_url || null,
             subjects: item.subjects || ["Teaching"],
             linkedin: item.linkedin || "#"
           }));
@@ -195,24 +192,12 @@ export default function FacultyPage() {
                   <div className="p-5">
                     <h3 className="font-bold text-primary text-lg mb-1">{faculty.name}</h3>
                     <p className="text-secondary text-sm mb-2">{faculty.designation}</p>
-                    <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                    <div className="flex items-center gap-2 text-xs text-gray-500">
                       <GraduationCap size={14} />
                       <span>{faculty.qualification}</span>
                       <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
                       <Calendar size={14} />
                       <span>{faculty.experience}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {faculty.subjects?.slice(0, 2).map((subject: string, idx: number) => (
-                        <span key={idx} className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
-                          {subject}
-                        </span>
-                      ))}
-                      {faculty.subjects?.length > 2 && (
-                        <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
-                          +{faculty.subjects.length - 2}
-                        </span>
-                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -277,52 +262,46 @@ export default function FacultyPage() {
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
                     <Calendar size={18} />
-                    <span>{selectedFaculty.experience} Experience</span>
+                    <span>{selectedFaculty.experience}</span>
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
-                    <Mail size={18} />
-                    <span>{selectedFaculty.email}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Phone size={18} />
-                    <span>{selectedFaculty.phone}</span>
+                    <BookOpen size={18} />
+                    <span>{selectedFaculty.department}</span>
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <h3 className="font-bold text-primary mb-2">Subjects Taught</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedFaculty.subjects?.map((subject: string) => (
-                      <span key={subject} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
-                        {subject}
-                      </span>
-                    ))}
+                {selectedFaculty.subjects && selectedFaculty.subjects.length > 0 && selectedFaculty.subjects[0] !== "Teaching" && (
+                  <div className="mb-6">
+                    <h3 className="font-bold text-primary mb-2">Subjects Taught</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedFaculty.subjects?.map((subject: string) => (
+                        <span key={subject} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                          {subject}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
-                <div className="mb-6">
-                  <h3 className="font-bold text-primary mb-2">Achievements</h3>
-                  <ul className="space-y-1">
-                    {selectedFaculty.achievements?.map((achievement: string) => (
-                      <li key={achievement} className="flex items-center gap-2 text-gray-600 text-sm">
-                        <Award size={16} className="text-secondary" />
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {selectedFaculty.achievements && selectedFaculty.achievements.length > 0 && selectedFaculty.achievements[0] !== "Dedicated to student success" && (
+                  <div className="mb-6">
+                    <h3 className="font-bold text-primary mb-2">Achievements</h3>
+                    <ul className="space-y-1">
+                      {selectedFaculty.achievements?.map((achievement: string) => (
+                        <li key={achievement} className="flex items-center gap-2 text-gray-600 text-sm">
+                          <Award size={16} className="text-secondary" />
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <div className="flex gap-3 pt-4 border-t border-gray-100">
                   <Link href={`mailto:${selectedFaculty.email}`}>
                     <Button variant="primary" size="sm">
                       <Mail size={16} className="mr-2" />
-                      Email
-                    </Button>
-                  </Link>
-                  <Link href={selectedFaculty.linkedin}>
-                    <Button variant="outline" size="sm">
-                      <Linkedin size={16} className="mr-2" />
-                      LinkedIn
+                      Contact
                     </Button>
                   </Link>
                 </div>
